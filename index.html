@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script data-require="angularjs@1.5.8" data-semver="1.5.8" src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
+  <link href="main.css" rel="stylesheet" />
+  <script
+			  src="https://code.jquery.com/jquery-3.1.0.min.js"
+			  integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+			  crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="main.js"></script>
+</head>
+
+<body ng-app="scopeExample">
+
+
+
+  <div ng-controller="MyController">
+    <div class="header-search-box">
+      <h1 class="header text-center">GitHub Viewer</h1>
+      <form name="searchUser" class="">
+        <!-- <fieldset> -->
+          <input id="username" type="text" ng-model="username">
+          <input type="submit" class="btn" value="find" ng-click="search(); showDetails()">
+        <!-- </fieldset> -->
+      </form>
+    </div>
+    <p>{{ error }}</p>
+    <p>{{ countdown }}</p>
+    <div class="profile_image" ng-include="'profile.html'" id="userDetails">
+
+    </div>
+    <table class="table table-striped" ng-show="user">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Stars</th>
+          <th>Language</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="repo in repos | orderBy:'stargazers_count'">
+          <td>{{ repo.name }}</td>
+          <td>{{ repo.stargazers_count | number }}</td>
+          <td>{{ repo.language }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+
+</html>

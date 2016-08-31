@@ -1,0 +1,25 @@
+.profile_image img{
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 10px auto;
+}
+
+.profile_image{
+  width: 20%;
+  margin: 20px auto;
+}
+
+input[type="text"]{
+  border: 2px solid orange;
+  text-align: center;
+}
+input[type="text"]:focus{
+  border: 4px solid orange;
+}
+
+form{
+  width: 30%;
+  margin: 20px auto;
+  text-align: center;
+}
